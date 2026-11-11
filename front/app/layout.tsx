@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import { site } from "@/data/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Your Name | Developer",
-  description: "Portfolio of Your Name, a full-stack developer.",
+  title: `${site.name} | ${site.role}`,
+  description: site.description,
 };
 
 export default function RootLayout({
@@ -14,11 +13,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en">
       <body className="bg-neutral-950 text-neutral-100 antialiased">
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        {children}
       </body>
     </html>
   );
